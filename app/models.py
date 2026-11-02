@@ -14,6 +14,7 @@ class UserDB(Base):
     email: Mapped[str] = mapped_column(String(320), nullable=False, unique=True)
     role: Mapped[str | None] = mapped_column(String(200))
     is_platform_admin: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    is_reviewer: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
     organization_id: Mapped[str | None] = mapped_column(
         String(64), ForeignKey("organizations.id")

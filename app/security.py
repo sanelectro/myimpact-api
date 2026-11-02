@@ -67,6 +67,7 @@ def create_access_token(user: UserDB, now: datetime | None = None) -> tuple[str,
             "email": user.email,
             "role": user.role,
             "is_platform_admin": user.is_platform_admin,
+            "is_reviewer": getattr(user, "is_reviewer", False),
             "scope": "myimpact-api myimpact-ai",
             "iss": settings.auth_issuer,
             "aud": settings.auth_audience,
@@ -153,4 +154,5 @@ def user_claims(user: UserDB) -> dict[str, Any]:
         "name": user.name,
         "email": user.email,
         "role": user.role,
+        "is_reviewer": getattr(user, "is_reviewer", False),
     }

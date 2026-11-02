@@ -99,6 +99,7 @@ class UserResponse(BaseModel):
     email: EmailStr
     role: str | None
     is_platform_admin: bool = False
+    is_reviewer: bool = False
 
 
 class AuthResponse(BaseModel):
